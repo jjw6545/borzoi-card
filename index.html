@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="Description" content="Put your description here.">
+  <base href="/">
+
+ 
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    font: 20px Comic Sans MS;
+    background-color: cyan;
+    --borzoi-card-background-color: pink;
+  }
+  .buttons button {
+    padding: 8px;
+       box-shadow: 2px 2px #000000;
+    background-color: pink;
+     border-radius: 16px;
+     border: 2px solid blue;
+  text-shadow: 2px 2px #000000;
+    font: 18px Comic Sans MS;
+  color: white;
+  }
+
+  button:hover{
+  background-color: red;
+}
+
+  button:focus {
+    background-color: blue;
+  }
+  borzoi-card::part(details) {
+    font-size: 22px;
+  }
+
+</style>
+
+
+<title>borzoi-card</title>
+</head>
+
+<body>
+
+  <div class="buttons">
+    <button class="copy">Duplicate</button>
+    <button class="changeBackground">Background</button>
+    <button class="changeTitle">Title</button>
+    <button id="delete">Delete</button>
+    <button class="details">Details</button>
+
+  </div>
+  <div id="app">
+    <borzoi-card>
+      <ul slot="facts">
+      <details>
+        <summary>Real Facts</summary>
+        <li>They have long noses</li>
+        <li>They look like horses</li>
+        <li>They can see the future</li>
+      </ul>
+    </details>
+
+    </borzoi-card>
+  </div>
+
+  <script type="module" src="./src/borzoi-card.js"></script>
+  <script type="module">
+    import "@lrnwebcomponents/meme-maker/meme-maker.js";
+  </script>
+  <script>
+
+
+    const toggleBackground = document.querySelector(".changeBackground");
+
+    const changeTitle = document.querySelector(".changeTitle");
+
+    const deleteButton = document.querySelector("#delete");
+
+
+    const detailsButton = document.querySelector(".details");
+
+    const card = document.querySelector("borzoi-card");
+
+
+
+
+
+    const copyButton = function () {
+  console.log(btn);
+  const div1 = document.querySelector("borzoi-card");
+  var child = document.body.appendChild(div1.cloneNode(true));
+  child.classList.add("card2");
+  console.log(child);
+};
+const btn = document.querySelector(".copy");
+btn.addEventListener("click", copyButton);
+
+
+
+    function getRandomColor() {
+      var letters = "0123456789ABCDEF";
+      var color = "#";
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    toggleBackground.addEventListener("click", function (e) {
+      card.shadowRoot.querySelector(".card").style.backgroundColor =
+        getRandomColor();
+      var color = getRandomColor();
+
+    });
+
+
+
+
+    changeTitle.addEventListener("click", function (e) {
+      if (card.title == "Borzoi") {
+        card.title = "Do Not Feed"
+      } else {
+        card.title = "Borzoi"
+      }
+    });
+
+    deleteButton.addEventListener("click", function (e) {
+      var x = document.querySelector(".card2");
+      x.remove(0);
+
+
+    });
+
+    detailsButton.addEventListener("click", function (e) {
+      if (card.shadowRoot.querySelector(".details").getAttribute("open")) {
+        card.shadowRoot.querySelector(".details").removeAttribute("open");
+      } else {
+        card.shadowRoot
+          .querySelector(".details")
+          .setAttribute("open", "open");
+      }
+    });
+
+  </script>
+
+
+
+</body>
+
+</html>
