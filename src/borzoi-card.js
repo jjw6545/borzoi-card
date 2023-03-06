@@ -10,10 +10,10 @@ class borzoiCard extends LitElement {
     detail: { type: String },
     bottom: { type: String },
     cardColor: { type: String, reflect: true, attribute: "card-color" },
-    opened: {type: Boolean, reflect: true},
+    opened: { type: Boolean, reflect: true },
   };
 
- 
+
 
   static styles = css`
 
@@ -116,7 +116,7 @@ class borzoiCard extends LitElement {
     this.detail = "Real Facts";
     this.opened = false;
   }
-  
+
 
   toggleEvent(e) {
     const state =
