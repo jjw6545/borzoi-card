@@ -8,7 +8,9 @@ class borzoiCard extends LitElement {
     image: { type: String },
     topLabel: { type: String },
     detail: { type: String },
+    bottom: { type: String },
     cardColor: { type: String, reflect: true, attribute: "card-color" },
+    opened: {type: Boolean, reflect: true},
   };
 
  
@@ -38,10 +40,13 @@ class borzoiCard extends LitElement {
       border: 2px solid red;
       border-radius: 16px;
       box-shadow: 4px 4px;
+
+      display: inline-block;
+
     }
 
     .facts {
-      font: 18px Comic Sans MS;
+      font: 22px Comic Sans MS;
       color: var(--borzoi-card-facts-color, white);
       display: block;
       text-align: left;
@@ -80,7 +85,7 @@ class borzoiCard extends LitElement {
     }
 
     summary {
-      font: 28px Comic Sans MS;
+      font: 18px Comic Sans MS;
       color: white;
       text-shadow: 2px 2px #000000;
       line-height: 0px;
@@ -107,9 +112,40 @@ class borzoiCard extends LitElement {
     this.image =
       "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B700%2C759%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F08%2F05%2Fborzoi-is-big-tiktok-535986771-2000.jpg";
     this.topLabel = "Dog Facts";
-    this.detail = "More Info";
+    this.bottom = "More Info";
+    this.detail = "Real Facts";
+    this.opened = false;
   }
   
+
+  toggleEvent(e) {
+    const state =
+      this.shadowRoot.querySelector("details").getAttribute("open") === ''
+        ? true
+        : false;
+    this.opened = state;
+  }
+
+  updated(changedProperties) {
+    changedProperties.forEach((oldValue, propName) => {
+      if (propName === 'opened') {
+        this.dispatchEvent(
+          new CustomEvent('open-changed', {
+            composed: true,
+            bubbles: true,
+            canelable: false,
+            detail: {
+              value: this[propName]
+            },
+          })
+        );
+      }
+    });
+  }
+
+
+
+
 
   render() {
     return html`
@@ -122,10 +158,14 @@ class borzoiCard extends LitElement {
             image-url=${this.image}
             top-text=${this.topLabel}
           ></meme-maker>
-          <div class="facts">
-          <p class="facts">${this.detail}</p>
-            <slot name="facts"></slot>
+          <h2 class="facts">${this.bottom}</h2>
+
+          <details class="facts" .open="${this.opened}" @toggle="${this.toggleEvent}">
+          <summary>${this.detail}</summary>
+          <div>
+            <slot></slot>
           </div>
+        </details>
 
 
         </div>

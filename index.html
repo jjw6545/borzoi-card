@@ -57,14 +57,12 @@
   </div>
   <div id="app">
     <borzoi-card>
-      <ul slot="facts">
-      <details>
-        <summary>Real Facts</summary>
+      <ul>
         <li>They have long noses</li>
         <li>They look like horses</li>
         <li>They can see the future</li>
       </ul>
-    </details>
+
 
     </borzoi-card>
   </div>
@@ -82,7 +80,6 @@
 
     const deleteButton = document.querySelector("#delete");
 
-
     const detailsButton = document.querySelector(".details");
 
     const card = document.querySelector("borzoi-card");
@@ -97,9 +94,9 @@
   var child = document.body.appendChild(div1.cloneNode(true));
   child.classList.add("card2");
   console.log(child);
-};
-const btn = document.querySelector(".copy");
-btn.addEventListener("click", copyButton);
+  };
+  const btn = document.querySelector(".copy");
+  btn.addEventListener("click", copyButton);
 
 
 
@@ -137,15 +134,11 @@ btn.addEventListener("click", copyButton);
 
     });
 
-    detailsButton.addEventListener("click", function (e) {
-      if (card.shadowRoot.querySelector(".details").getAttribute("open")) {
-        card.shadowRoot.querySelector(".details").removeAttribute("open");
-      } else {
-        card.shadowRoot
-          .querySelector(".details")
-          .setAttribute("open", "open");
-      }
-    });
+
+    document.querySelector('.details').addEventListener('click', (e) =>{
+  const card = document.querySelector('borzoi-card');
+  card.opened = !card.opened;
+  });
 
   </script>
 
