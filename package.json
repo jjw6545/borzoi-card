@@ -3,7 +3,7 @@
   "description": "Webcomponent borzoi-card following open-wc recommendations",
   "license": "MIT",
   "author": "borzoi-card",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "lint": "eslint --ext .ts,.html . --ignore-path .gitignore && prettier \"**/*.ts\" --check --ignore-path .gitignore",
