@@ -20,7 +20,7 @@ export class DogRoster extends LitElement {
     }
 
     updateRoster() {
-        const address = new URL('../api/roster', import.meta.url).href;
+        const address = new URL('../assets/dog-roster.json', import.meta.url).href;
         fetch(address).then((response) => {
             if (response.ok) {
                 return response.json()
@@ -28,7 +28,7 @@ export class DogRoster extends LitElement {
             return [];
         })
         .then((data) => {
-            this.dogs = data;
+            this.cities = data;
         });
     }
     
