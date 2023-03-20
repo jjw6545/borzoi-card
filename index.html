@@ -47,6 +47,8 @@
 
 <body>
 
+<dog-roster></dog-roster>
+
   <div class="buttons">
     <button class="copy">Duplicate</button>
     <button class="changeBackground">Background</button>
@@ -68,6 +70,10 @@
   </div>
 
   <script type="module" src="./src/borzoi-card.js"></script>
+  <script type="module">
+      import "./src/borzoi-card.js";
+      import "./src/dog-roster.js";
+  </script>
   <script type="module">
     import "@lrnwebcomponents/meme-maker/meme-maker.js";
   </script>
