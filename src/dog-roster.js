@@ -28,7 +28,7 @@ export class DogRoster extends LitElement {
             return [];
         })
         .then((data) => {
-            this.cities = data;
+            this.dogs = data;
         });
     }
     
