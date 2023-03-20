@@ -1,8 +1,20 @@
 [
     {
-        "image": "https://imagesvc.meredithcorp.io/v3/mm/image?q=60&c=sc&poi=%5B700%2C759%5D&w=2000&h=1000&url=https%3A%2F%2Fstatic.onecms.io%2Fwp-content%2Fuploads%2Fsites%2F47%2F2021%2F08%2F05%2Fborzoi-is-big-tiktok-535986771-2000.jpg",
-        "topLabel": "Dog Facts",
+        "image": "https://thelabradorfamily.com/wp-content/uploads/2022/03/Chocolate-Labrador-1.jpg",
+        "topLabel": "Lab Facts",
         "bottom": "More Info",
-        "detail": "Real Facts"
+        "detail": "Real Cool"
+    },
+    {
+        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Mops_oct09_cropped2.jpg",
+        "topLabel": "Schnauzer Facts",
+        "bottom": "More Info",
+        "detail": "Real Small"
+    },
+    {
+        "image": "http://t2.gstatic.com/licensed-image?q=tbn:ANd9GcQI_mKweA9SAPMgq0zRBTNJN7atXi_ttj71YRlPYMDNTxdP_emLZsD3CXRJ1T2Y42HPcHKOLfM8zI3AuL8",
+        "topLabel": "Pug Facts",
+        "bottom": "More Info",
+        "detail": "Real Gross"
     }
 ]
